@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
   
     "name": "udemy fast learners",
     "description": " Course sorter extension according to the length!",
@@ -8,8 +8,15 @@
       "128": "icon128.png"
 
     },
-  
-    "browser_action": {
+    "background": {
+      "service_worker": "background.js"
+
+    },
+    "host_permissions": [
+      "*://*/*"
+
+        ],
+    "action": {
       "default_icon": "icon128.png",
       "default_popup": "popup.html"
     }
