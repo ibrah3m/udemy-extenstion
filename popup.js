@@ -53,21 +53,28 @@ $(function () {
                     // view the list 
 
                     $.each(entire_courses.results, function (key, value) {
-                        $('#list').append(
+                        try {
 
+                            $('#list').append(
+
+                                `
+                            <div class="card" style="width: 18rem;">
+                                    <img class="card-img-top" src="` + value.image_240x135 + `" alt="Card image cap">
+                                    <div class="card-body">
+                                    <h5 class="card-title">` + value.title + `</h5>
+                                    <p class="card-text">`+juration.stringify(value.video_length, { format: 'short' })+`</p>
+                                    <a href="https://www.udemy.com` + value.url + `"  target="_blank" class="btn btn-primary">Go</a>
+                                    </div>
+                            </div>
                             `
-                        <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="` + value.image_240x135 + `" alt="Card image cap">
-                                <div class="card-body">
-                                <h5 class="card-title">` + value.title + `</h5>
-                                <p class="card-text">`+juration.stringify(value.video_length, { format: 'short' })+`</p>
-                                <a href="https://www.udemy.com` + value.url + `"  target="_blank" class="btn btn-primary">Go</a>
-                                </div>
-                        </div>
-                        `
+    
+    
+                            );
 
-
-                        );
+                        } catch (err) {
+                            console.log(err)
+                        }
+                   
 
                     })
 
